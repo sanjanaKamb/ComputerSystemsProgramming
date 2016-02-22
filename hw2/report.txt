@@ -1,0 +1,11 @@
+﻿Sanjana Kambalapally, 999147873
+Rayun Mehrab, 999036582
+ECE454 Lab 2
+
+The following two techniques were implemented to improve the performance of the code:
+
+1. Loop switching - The default loop order provides good performance while reading from source, but is inefficient during writes to destination array. Switching the loop order reverses the situation and thus provides better store performance. This is more preferable, because store performance affects the overall speedup far more than the load performance.
+
+2. Tiling with various tile sizes - We implemented loop tiling by letting the loops iterate over smaller blocks, so that data from the cache stays in cache until it's resused. Experimentation with the tile sizes for both i and j allows the best speedup eventually. An interesting thing we noted was that for higher image sizes (2048, 4096), higher j (1024) and lower i (16) size allows increase in efficiency for store performance that increases overall speedup.
+
+There were also several implementations of the solution where we tried using optimization techniques such as loop unrolling and constant propagation. However, these did not result in speeding up the program.
